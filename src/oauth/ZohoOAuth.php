@@ -152,12 +152,12 @@ class ZohoOAuth
 
             $classReference = self::$configProperties[ZohoOAuthConstants::PERSISTENCE_HANDLER_CLASS_NAME];
 
-            if(is_object($classReference)) {
-                return $classReference;
-            }
-
             if(is_callable($classReference)) {
                 return $classReference();
+            }
+
+            if(is_object($classReference)) {
+                return $classReference;
             }
 
             if(is_string($classReference)) {
